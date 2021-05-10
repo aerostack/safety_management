@@ -1,0 +1,18 @@
+recovery_actions_for_emergency_events:
+
+  - predicate: battery_level
+    value: LOW
+    abort_mission: TRUE
+    recovery_plan: return_starting_point
+
+  - predicate: collision_course
+    abort_mission: FALSE
+    recovery_plan: emergency_land
+
+  
+
+
+
+
+
+

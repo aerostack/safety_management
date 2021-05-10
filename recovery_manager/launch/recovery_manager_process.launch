@@ -1,0 +1,17 @@
+<!-- Launches: recovery_manager_process -->
+<launch>
+	
+	<arg name="robot_namespace"  default="drone1" />
+	<arg name="frequency"   default="30.0" />
+	<arg name="drone_id"   default="1" />
+
+    
+	<group ns="$(arg robot_namespace)">
+		<node name="recovery_manager_process" pkg="recovery_manager_process" type="recovery_manager_process_main" output="screen">
+			<param name="robot_namespace" value="$(arg robot_namespace)" type="string"/>		
+			<param name="frequency"   value="$(arg frequency)" type="double" />
+			<param name="drone_id"   value="$(arg drone_id)" type="int" />
+
+		</node>
+	</group>
+</launch>

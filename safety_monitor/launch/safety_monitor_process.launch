@@ -1,0 +1,17 @@
+<!-- Launches: safety_monitor_process -->
+<launch>
+	
+	<arg name="robot_namespace"  default="drone1" />
+	<arg name="frequency"   default="30.0" />
+    <arg name="safety_monitor_language_path"   default="$(env AEROSTACK_STACK)/stack/mission_control/safety_monitor/src/source" />
+    <arg name="safety_monitor_language_file"   default="safety_rules.yaml" />
+    
+	<group ns="$(arg robot_namespace)">
+		<node name="safety_monitor_process" pkg="safety_monitor_process" type="safety_monitor_process_main" output="screen">
+			<param name="robot_namespace" value="$(arg robot_namespace)" type="string"/>		
+			<param name="frequency"   value="$(arg frequency)" type="double" />
+			<param name="safety_monitor_language_path"   value="$(arg safety_monitor_language_path)" type="string" />
+			<param name="safety_monitor_language_file"   value="$(arg safety_monitor_language_file)" type="string" />
+		</node>
+	</group>
+</launch>
